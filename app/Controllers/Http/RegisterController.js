@@ -1,12 +1,35 @@
 "use strict";
 
+const { validate } = use("Validator");
+const User = use("App/Models/User");
+const Hash = use("Hash");
+
 class RegisterController {
   index({ request, response, view }) {
     return view.render("auth.register");
   }
 
-  register({ request, response }) {
-    //
+  async register({ request, response, session }) {
+    const rules = {
+      email: "required|email|unique:users,email",
+      username: "required|unique:users,username",
+      password: "required|min:6",
+    };
+
+    const validation = await validate(request.all(), rules);
+
+    if (validation.fails()) {
+      session.withErrors(validation.messages()).flashExcept(["password"]);
+
+      return response.redirect("back");
+    }
+
+    const user = new User();
+    user.username = request.input("username");
+    user.email = request.input("email");
+    user.password = Hash.make(request.input("password"));
+
+    await user.save();
   }
 }
 
