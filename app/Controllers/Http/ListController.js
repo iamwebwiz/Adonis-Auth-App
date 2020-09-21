@@ -1,7 +1,7 @@
 "use strict";
 
 class ListController {
-  index({ request, response, view }) {
+  index({ request, response, view, auth }) {
     const characters = {
       "Daenerys Targaryen": "Emilia Clarke",
       "Jon Snow": "Kit Harington",
@@ -15,7 +15,9 @@ class ListController {
       "Lord Varys": "Conleth Hill",
     };
 
-    return view.render("welcome", { characters });
+    const currentUser = auth.getUser();
+
+    return view.render("welcome", { characters, currentUser });
   }
 }
 
