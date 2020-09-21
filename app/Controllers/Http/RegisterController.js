@@ -9,7 +9,7 @@ class RegisterController {
     return view.render("auth.register");
   }
 
-  async register({ request, response, session }) {
+  async register({ auth, request, response, session }) {
     const rules = {
       email: "required|email|unique:users,email",
       username: "required|unique:users,username",
@@ -27,9 +27,15 @@ class RegisterController {
     const user = new User();
     user.username = request.input("username");
     user.email = request.input("email");
-    user.password = Hash.make(request.input("password"));
+    user.password = request.input("password");
 
     await user.save();
+
+    await auth.attempt(email, password);
+
+    session.flash({ message: "User registered successfully" });
+
+    return response.redirect("/");
   }
 }
 
