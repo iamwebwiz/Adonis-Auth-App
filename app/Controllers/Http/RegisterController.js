@@ -31,7 +31,7 @@ class RegisterController {
 
     await user.save();
 
-    await auth.attempt(email, password);
+    await auth.attempt(request.input("email"), request.input("password"));
 
     session.flash({ message: "User registered successfully" });
 
