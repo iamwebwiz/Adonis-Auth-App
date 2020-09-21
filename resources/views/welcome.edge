@@ -8,8 +8,11 @@
 </head>
 <body>
   <p>It works!</p>
-  @each((realName, stageName) in characters)
-    {{ stageName }} <br>
-  @endeach
+
+  @if(currentUser)
+    @each((realName, stageName) in characters)
+      {{ stageName }} <br>
+    @endeach
+  @endif
 </body>
 </html>
