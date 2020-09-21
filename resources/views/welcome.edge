@@ -10,9 +10,14 @@
   <p>It works!</p>
 
   @if(currentUser)
-    @each((realName, stageName) in characters)
-      {{ stageName }} <br>
-    @endeach
+    <p>Logged in as: <b>{{ currentUser.username }}</b></p>
+    <p><a href="/logout">Logout</a></p>
+
+    <ul>
+      @each((realName, stageName) in characters)
+        <li>{{ stageName }}</li>
+      @endeach
+    </ul>
   @endif
 </body>
 </html>
