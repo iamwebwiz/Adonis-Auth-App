@@ -6,7 +6,7 @@ class ListController {
       "Daenerys Targaryen": "Emilia Clarke",
       "Jon Snow": "Kit Harington",
       "Arya Stark": "Maisie Williams",
-      Melisandre: "Carice van Houten",
+      Melisandre: "Carice Van Houten",
       "Khal Drogo": "Jason Momoa",
       "Tyrion Lannister": "Peter Dinklage",
       "Ramsay Bolton": "Iwan Rheon",
