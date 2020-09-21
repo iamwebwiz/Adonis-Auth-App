@@ -15,7 +15,7 @@ class ListController {
       "Lord Varys": "Conleth Hill",
     };
 
-    const currentUser = auth.getUser();
+    const currentUser = auth.user;
 
     return view.render("welcome", { characters, currentUser });
   }
