@@ -23,3 +23,5 @@ Route.post("login", "LoginController.login");
 
 Route.get("register", "RegisterController.index");
 Route.post("register", "RegisterController.register");
+
+Route.get("logout", "LoginController.logout");

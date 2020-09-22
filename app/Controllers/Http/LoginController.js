@@ -8,6 +8,14 @@ class LoginController {
   login({ request, response }) {
     //
   }
+
+  logout({ auth, response, session }) {
+    auth.logout();
+
+    session.flash({ message: "Logged out successfully." });
+
+    return response.redirect("/");
+  }
 }
 
 module.exports = LoginController;
