@@ -5,7 +5,7 @@ class LoginController {
     return view.render("auth.login");
   }
 
-  login({ request, response }) {
+  login({ request, response, session }) {
     //
   }
 
