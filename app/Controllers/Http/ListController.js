@@ -1,7 +1,7 @@
 "use strict";
 
 class ListController {
-  index({ request, response, view, auth }) {
+  index({ view, auth }) {
     const characters = {
       "Daenerys Targaryen": "Emilia Clarke",
       "Jon Snow": "Kit Harington",
